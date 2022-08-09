@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --bgColor: #17162e;
+  --white: #ffffff;
+  --input-bg: rgba(255, 255, 255, 0.2);
+  --white-transparent: #8a8a8a;
+  --checked: #706ea8;
+  --card: #1d1c3b;
+  --card-shadow: 32.8387px 24.5482px 79px rgba(0, 0, 0, 0.15),
+    23.8851px 17.855px 53.2479px rgba(0, 0, 0, 0.121406),
+    16.6246px 12.4276px 34.4391px rgba(0, 0, 0, 0.10125),
+    10.9035px 8.15079px 21.3701px rgba(0, 0, 0, 0.0867188),
+    6.56775px 4.90965px 12.8375px rgba(0, 0, 0, 0.075),
+    3.46346px 2.58907px 7.6377px rgba(0, 0, 0, 0.0632813),
+    1.4367px 1.07399px 4.56719px rgba(0, 0, 0, 0.04875),
+    0.333519px 0.249318px 2.42246px rgba(0, 0, 0, 0.0285938);
+  --text-color: #acacac;
+}
+
+body {
+  background: var(--bgColor);
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 345px;
+  color: var(--white);
+  padding: 20px 0;
+  height: 250px;
+}
+
+.header h1 {
+  font-weight: 600;
+}
+
+.search {
+  display: flex;
+  position: relative;
+  width: 634px;
+  height: 74px;
+}
+
+.search input {
+  border-radius: 8px;
+  color: var(--white);
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding-left: 24px;
+  background: var(--input-bg);
+  border: none;
+  font-size: 18px;
+}
+
+.search input::placeholder {
+  color: var(--white-transparent);
+}
+
+.search .icon {
+  position: absolute;
+  color: var(--white-transparent);
+  right: 0;
+  top: 0;
+  text-align: center;
+  padding: 17px 10px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.search .icon:hover {
+  color: var(--white);
+}
+
+.header h1 {
+  font-size: 36px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+}
+
+.filter,
+.filter input[type="checkbox"],
+.filter label {
+  cursor: pointer;
+}
+
+.filter input[type="checkbox"] {
+  accent-color: var(--checked);
+  height: 16px;
+  width: 16px;
+}
+
+.filter label {
+  font-size: 18px;
+  user-select: none;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.card-container {
+  margin-top: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 50px 0;
+  height: calc(100vh - 300px);
+  direction: rtl;
+}
+
+.cards {
+  padding: 0 1px 0 0;
+  overflow-y: auto;
+  direction: ltr;
+  height: 100%;
+}
+
+.card {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1224px;
+  height: 201px;
+  background: var(--card);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 48px;
+  border-radius: 8px;
+}
+
+.card .card-image {
+  width: 215px;
+  height: 162px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+.card .card-details {
+  padding-left: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: calc(100% / 3);
+  color: var(--white);
+}
+
+.card-details h1 {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.card-details .icons {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  text-align: center;
+}
+
+.icons span {
+  font-weight: 400;
+  line-height: 22px;
+  margin-right: 10px;
+}
+
+.icons p {
+  margin-right: 45px;
+  font-weight: 400;
+}
+.card .description {
+  width: 592px;
+  height: 128px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 32px;
+  color: var(--text-color);
+}
+
+.star {
+  color: #d7a82f;
+  cursor: pointer;
+}
+
+.favorite {
+  color: #ba0707;
+  cursor: pointer;
+}
+
+/* Designing for scroll-bar */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--bgColor);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: var(--white-transparent);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white-transparent);
+}
