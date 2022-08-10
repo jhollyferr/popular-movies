@@ -211,6 +211,10 @@ body {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Designing for scroll-bar */
 ::-webkit-scrollbar {
   width: 0px;
