@@ -1,6 +1,9 @@
-import { movies } from "./data-movies.js";
+import { getMovies } from "./data-movies.js";
 
-const favoritesFiltered = movies.filter((movie) => movie.isFavorited);
+const favoritesFiltered = async () => {
+  const movies = await getMovies();
+  return movies.filter((movie) => movie.isFavorited);
+};
 
 const template = document.querySelector(".card");
 const container = document.querySelector(".cards");
@@ -47,10 +50,10 @@ export const renderMovies = (movies) => {
   container.append(...cards);
 };
 
-export const handleFavorite = (event) => {
+export const handleFavorite = async (event) => {
   const { target } = event;
 
   return target.checked
-    ? renderMovies(favoritesFiltered)
-    : renderMovies(movies);
+    ? renderMovies(await favoritesFiltered())
+    : renderMovies(await getMovies());
 };

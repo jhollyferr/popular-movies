@@ -135,12 +135,12 @@ body {
 }
 
 .card {
-  padding: 0 20px;
+  padding: 30px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 1224px;
-  height: 201px;
+  height: auto;
   background: var(--card);
   box-shadow: var(--card-shadow);
   margin-bottom: 48px;
@@ -194,7 +194,7 @@ body {
 }
 .card .description {
   width: 592px;
-  height: 128px;
+  /* height: 128px; */
   font-weight: 500;
   font-size: 18px;
   line-height: 32px;
