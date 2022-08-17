@@ -1,13 +1,18 @@
-import { getMovies } from "./modules/data-movies-module.js";
+import { getMovies } from "./modules/Movie/service";
 import {
   handleFavorite,
   handleSearch,
   handleSearchInput,
   renderMovies,
-} from "./modules/movies-module.js";
+} from "./modules/Movie/controller";
+
+import "./styles/index.css";
+import image from "./assets/template.jpg";
 
 document.onreadystatechange = async () => {
   if (document.readyState === "complete") {
+    _template.src = image;
+
     const movies = await getMovies();
 
     renderMovies(movies);

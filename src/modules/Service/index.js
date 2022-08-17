@@ -1,4 +1,5 @@
-import { API_TOKEN } from "../secret/keys.js";
+import axios from "axios";
+import { API_TOKEN } from "../../secret";
 
 export const API = axios.create({
   baseURL: "https://api.themoviedb.org/3/",

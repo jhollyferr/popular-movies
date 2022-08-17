@@ -1,15 +1,31 @@
-const webpack = require("webpack");
+const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
-const path = require("path");
+// const BundleAnalyzerPlugin =
+//   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: "./src/index.js",
+  mode: "development",
+  entry: {
+    bundle: path.resolve(__dirname, "src/index.js"),
+  },
   output: {
-    filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    filename: "[name][contenthash].js",
+    clean: true,
+    assetModuleFilename: "[name][ext]",
   },
   devtool: "source-map",
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
+    hot: true,
+    open: true,
+    port: 3080,
+    compress: true,
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       {
@@ -23,16 +39,8 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              mimetype: "image/png",
-              limit: 8192,
-            },
-          },
-        ],
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
       {
         test: /\.css$/,
@@ -44,30 +52,13 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, "src"),
-      watch: true,
-    },
-    hot: true,
-    open: true,
-    port: 3080,
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new htmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
       inject: "body",
     }),
-
     new Dotenv(),
+    // new BundleAnalyzerPlugin(),
   ],
-  resolve: {
-    fallback: {
-      fs: false,
-      os: false,
-      path: false,
-    },
-  },
 };

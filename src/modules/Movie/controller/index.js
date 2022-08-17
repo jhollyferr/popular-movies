@@ -1,19 +1,10 @@
+import { getMovies, searchMovies } from "../service";
+
 import {
   getFavoritedMovies,
-  getMovies,
   removeFavoriteFromStorage,
   saveFavoriteToStorage,
-  searchMovies,
-} from "./data-movies-module.js";
-
-const favoritesFiltered = async () => {
-  try {
-    const movies = await getMovies();
-    return movies.filter((movie) => movie.isFavorited);
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+} from "../../Storage";
 
 const template = document.querySelector(".card");
 const container = document.querySelector(".cards");
@@ -86,7 +77,7 @@ export const handleFavorite = async (event) => {
   try {
     const { target } = event;
 
-    const favorites = await favoritesFiltered();
+    const favorites = getFavoritedMovies();
     const movies = await getMovies();
 
     if (!favorites.length)

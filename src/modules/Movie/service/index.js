@@ -1,5 +1,5 @@
-import { STORAGE_KEY } from "../secret/keys.js";
-import { API } from "./service-module.js";
+import { getFavoritedMovies } from "../../Storage";
+import { API } from "../../Service";
 
 let defaultOptions = {
   params: {
@@ -18,37 +18,6 @@ class Movie {
     this.isFavorited = false;
   }
 }
-
-export const getFavoritedMovies = () =>
-  JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-
-export const saveFavoriteToStorage = (movie) => {
-  try {
-    const favorites = getFavoritedMovies();
-
-    movie.isFavorited = true;
-
-    const data = [...favorites, movie];
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-export const removeFavoriteFromStorage = (movie) => {
-  try {
-    const favorites = getFavoritedMovies();
-
-    const index = favorites.findIndex((item) => item.title === movie.title);
-
-    favorites.splice(index, 1);
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
-  } catch (error) {
-    console.log(error.message);
-  }
-};
 
 const defineMovieData = (movieData, favorites) => {
   const movie = new Movie(movieData);
