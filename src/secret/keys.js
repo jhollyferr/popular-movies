@@ -1,4 +1,6 @@
-export const API_TOKEN =
-  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZWJjMDEyMjcyYjBiNTZiODYxZWQ2NDhmMDhjNWZmMCIsInN1YiI6IjYxMjk1ZDVmMTI2ZWMzMDA0NDBlNjA1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8st5pc74exvs3-LFPmEwC-oMTHWRy_J1WBxra9Ud95s";
+export const API_TOKEN = process.env.API_TOKEN;
 
-export const STORAGE_KEY = "favorited_movies";
+export const STORAGE_KEY = process.env.STORAGE_KEY;
+
+console.log(API_TOKEN);
+console.log(STORAGE_KEY);

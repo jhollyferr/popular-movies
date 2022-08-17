@@ -1,10 +1,10 @@
-import { getMovies } from "./data-movies-module.js";
+import { getMovies } from "./modules/data-movies-module.js";
 import {
   handleFavorite,
   handleSearch,
   handleSearchInput,
   renderMovies,
-} from "./movies-module.js";
+} from "./modules/movies-module.js";
 
 document.onreadystatechange = async () => {
   if (document.readyState === "complete") {
