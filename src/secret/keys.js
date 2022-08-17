@@ -1,0 +1,4 @@
+export const API_TOKEN =
+  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZWJjMDEyMjcyYjBiNTZiODYxZWQ2NDhmMDhjNWZmMCIsInN1YiI6IjYxMjk1ZDVmMTI2ZWMzMDA0NDBlNjA1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8st5pc74exvs3-LFPmEwC-oMTHWRy_J1WBxra9Ud95s";
+
+export const STORAGE_KEY = "favorited_movies";
