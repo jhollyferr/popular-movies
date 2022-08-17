@@ -1,5 +1,10 @@
-import { getMovies } from "./data-movies.js";
-import { handleFavorite, renderMovies } from "./utils.js";
+import { getMovies } from "./data-movies-module.js";
+import {
+  handleFavorite,
+  handleSearch,
+  handleSearchInput,
+  renderMovies,
+} from "./movies-module.js";
 
 document.onreadystatechange = async () => {
   if (document.readyState === "complete") {
@@ -8,6 +13,9 @@ document.onreadystatechange = async () => {
     renderMovies(movies);
 
     _favorite.addEventListener("click", handleFavorite);
-    console.log("Movies: ", await getMovies());
+
+    _search.addEventListener("click", handleSearch);
+
+    _searchInput.addEventListener("keyup", handleSearchInput);
   }
 };

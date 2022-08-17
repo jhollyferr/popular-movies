@@ -161,7 +161,7 @@ body {
   border-radius: 50%;
 }
 .card .card-details {
-  padding-left: 15px;
+  padding: 0 30px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -173,6 +173,7 @@ body {
 .card-details h1 {
   margin-bottom: 20px;
   font-weight: 500;
+  word-break: keep-all;
 }
 
 .card-details .icons {
