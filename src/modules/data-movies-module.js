@@ -1,4 +1,4 @@
-import { STORAGE_KEY } from "../secret/index.js";
+import { STORAGE_KEY } from "../secret/keys.js";
 import { API } from "./service-module.js";
 
 let defaultOptions = {
