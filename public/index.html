@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Popular Movies</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Filmes Populares</h1>
+
+      <div class="search">
+        <input
+          type="text"
+          name="_searchInput"
+          id="_searchInput"
+          placeholder="Digite algum filme para pesquisar..."
+        />
+        <span class="icon material-icons" id="_search"> search </span>
+      </div>
+
+      <div class="filter">
+        <input type="checkbox" name="favorite" id="_favorite" />
+        <label for="_favorite">Mostrar meus filmes favoritos apenas</label>
+      </div>
+    </header>
+
+    <main class="card-container">
+      <div class="cards">
+        <article class="card hidden">
+          <div class="card-image">
+            <img src="" alt="Image Movie" id="_template" />
+          </div>
+          <div class="card-details">
+            <h1>Avatar (2009)</h1>
+            <div class="icons">
+              <span class="star material-icons"> star_rate </span>
+              <p>9.8</p>
+              <span class="favorite material-icons"> favorite_border </span>
+              <p>Favoritar</p>
+            </div>
+          </div>
+          <p class="description">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+          </p>
+        </article>
+      </div>
+    </main>
+  <script defer src="bundlebb3be97a152ad3a9e371.js"></script></body>
+</html>
