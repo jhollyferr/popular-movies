@@ -2478,6 +2478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../service */ "./src/modules/Movie/service/index.js");
 /* harmony import */ var _Storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Storage */ "./src/modules/Storage/index.js");
+/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Toast */ "./src/modules/Toast/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
@@ -2505,6 +2506,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -2573,10 +2575,12 @@ var renderMovie = function renderMovie(movie) {
 var renderMovies = function renderMovies(movies) {
   try {
     container.innerHTML = "";
-    var cards = movies.map(function (movie) {
+
+    var _cards = movies.map(function (movie) {
       return renderMovie(movie);
     });
-    container.append.apply(container, _toConsumableArray(cards));
+
+    container.append.apply(container, _toConsumableArray(_cards));
   } catch (error) {
     console.log(error.message);
   }
@@ -2596,28 +2600,37 @@ var handleFavorite = /*#__PURE__*/function () {
 
           case 5:
             movies = _context.sent;
+            cards.style.display = "none";
+            loading.style.display = "flex";
 
-            if (favorites.length) {
-              _context.next = 8;
+            if (favorites.length > 0) {
+              _context.next = 11;
               break;
             }
 
+            (0,_Toast__WEBPACK_IMPORTED_MODULE_2__.toast)("There are no favorites. Please add some favorites.", "info");
             throw new Error("There are no favorites. Please add some favorites.");
 
-          case 8:
+          case 11:
+            cards.style.display = "none";
+            loading.style.display = "flex";
+            setTimeout(function () {
+              loading.style.display = "none";
+              cards.style.display = "";
+            }, 3000);
             return _context.abrupt("return", target.checked ? renderMovies(favorites) : renderMovies(movies));
 
-          case 11:
-            _context.prev = 11;
+          case 17:
+            _context.prev = 17;
             _context.t0 = _context["catch"](0);
             console.log(_context.t0.message);
 
-          case 14:
+          case 20:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 11]]);
+    }, _callee, null, [[0, 17]]);
   }));
 
   return function handleFavorite(_x) {
@@ -2636,33 +2649,34 @@ var handleSearch = /*#__PURE__*/function () {
             searchInputValue = target.parentElement.children[0].value;
 
             if (searchInputValue) {
-              _context2.next = 5;
+              _context2.next = 6;
               break;
             }
 
+            (0,_Toast__WEBPACK_IMPORTED_MODULE_2__.toast)("Please enter a movie title.", "info");
             throw new Error("Search input is empty, please enter a movie title");
 
-          case 5:
-            _context2.next = 7;
+          case 6:
+            _context2.next = 8;
             return (0,_service__WEBPACK_IMPORTED_MODULE_0__.searchMovies)(searchInputValue);
 
-          case 7:
+          case 8:
             movies = _context2.sent;
             renderMovies(movies);
-            _context2.next = 14;
+            _context2.next = 15;
             break;
 
-          case 11:
-            _context2.prev = 11;
+          case 12:
+            _context2.prev = 12;
             _context2.t0 = _context2["catch"](0);
             console.log(_context2.t0.message);
 
-          case 14:
+          case 15:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 11]]);
+    }, _callee2, null, [[0, 12]]);
   }));
 
   return function handleSearch(_x2) {
@@ -2680,41 +2694,42 @@ var handleSearchInput = /*#__PURE__*/function () {
             target = event.target;
             searchInputValue = target.value;
 
-            if (searchInputValue) {
-              _context3.next = 5;
+            if (!(event.key === "Enter")) {
+              _context3.next = 11;
               break;
             }
 
+            if (searchInputValue) {
+              _context3.next = 7;
+              break;
+            }
+
+            (0,_Toast__WEBPACK_IMPORTED_MODULE_2__.toast)("Please enter a movie title.", "info");
             throw new Error("Search input is empty, please enter a movie title");
 
-          case 5:
-            if (!(event.key === "Enter")) {
-              _context3.next = 10;
-              break;
-            }
-
-            _context3.next = 8;
+          case 7:
+            _context3.next = 9;
             return (0,_service__WEBPACK_IMPORTED_MODULE_0__.searchMovies)(searchInputValue);
 
-          case 8:
+          case 9:
             movies = _context3.sent;
             renderMovies(movies);
 
-          case 10:
-            _context3.next = 15;
+          case 11:
+            _context3.next = 16;
             break;
 
-          case 12:
-            _context3.prev = 12;
+          case 13:
+            _context3.prev = 13;
             _context3.t0 = _context3["catch"](0);
             console.log(_context3.t0.message);
 
-          case 15:
+          case 16:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[0, 12]]);
+    }, _callee3, null, [[0, 13]]);
   }));
 
   return function handleSearchInput(_x3) {
@@ -2728,6 +2743,12 @@ var saveOrFavoriteMovie = function saveOrFavoriteMovie(movie) {
     var index = favorites.findIndex(function (item) {
       return item.title === movie.title && item.isFavorited;
     });
+    cards.style.display = "none";
+    loading.style.display = "flex";
+    setTimeout(function () {
+      loading.style.display = "none";
+      cards.style.display = "";
+    }, 2000);
     index === -1 ? (0,_Storage__WEBPACK_IMPORTED_MODULE_1__.saveFavoriteToStorage)(movie) : (0,_Storage__WEBPACK_IMPORTED_MODULE_1__.removeFavoriteFromStorage)(movie);
   } catch (error) {
     console.log(error.message);
@@ -2820,21 +2841,27 @@ var getMovies = /*#__PURE__*/function () {
             _yield$API$get = _context.sent;
             status = _yield$API$get.status;
             results = _yield$API$get.data.results;
+            cards.style.display = "none";
+            loading.style.display = "flex";
+            setTimeout(function () {
+              loading.style.display = "none";
+              cards.style.display = "";
+            }, 3000);
             return _context.abrupt("return", _toConsumableArray(results).map(function (movie) {
               return defineMovieData(movie, (0,_Storage__WEBPACK_IMPORTED_MODULE_0__.getFavoritedMovies)());
             }));
 
-          case 9:
-            _context.prev = 9;
+          case 12:
+            _context.prev = 12;
             _context.t0 = _context["catch"](0);
             console.log(_context.t0.message);
 
-          case 12:
+          case 15:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 9]]);
+    }, _callee, null, [[0, 12]]);
   }));
 
   return function getMovies() {
@@ -2858,21 +2885,27 @@ var searchMovies = /*#__PURE__*/function () {
             _yield$API$get2 = _context2.sent;
             status = _yield$API$get2.status;
             results = _yield$API$get2.data.results;
+            cards.style.display = "none";
+            loading.style.display = "flex";
+            setTimeout(function () {
+              loading.style.display = "none";
+              cards.style.display = "";
+            }, 3000);
             return _context2.abrupt("return", _toConsumableArray(results).map(function (movie) {
               return defineMovieData(movie, (0,_Storage__WEBPACK_IMPORTED_MODULE_0__.getFavoritedMovies)());
             }));
 
-          case 10:
-            _context2.prev = 10;
+          case 13:
+            _context2.prev = 13;
             _context2.t0 = _context2["catch"](0);
             console.log(_context2.t0.message);
 
-          case 13:
+          case 16:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 10]]);
+    }, _callee2, null, [[0, 13]]);
   }));
 
   return function searchMovies(_x) {
@@ -2922,6 +2955,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "saveFavoriteToStorage": () => (/* binding */ saveFavoriteToStorage)
 /* harmony export */ });
 /* harmony import */ var _secret__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secret */ "./src/secret/index.js");
+/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Toast */ "./src/modules/Toast/index.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2935,6 +2969,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
+
 var getFavoritedMovies = function getFavoritedMovies() {
   return JSON.parse(localStorage.getItem(_secret__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEY)) || [];
 };
@@ -2944,7 +2979,9 @@ var saveFavoriteToStorage = function saveFavoriteToStorage(movie) {
     movie.isFavorited = true;
     var data = [].concat(_toConsumableArray(favorites), [movie]);
     localStorage.setItem(_secret__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEY, JSON.stringify(data));
+    (0,_Toast__WEBPACK_IMPORTED_MODULE_1__.toast)("Movie added to favorites", "success");
   } catch (error) {
+    (0,_Toast__WEBPACK_IMPORTED_MODULE_1__.toast)("Something went wrong", "error");
     console.log(error.message);
   }
 };
@@ -2956,9 +2993,50 @@ var removeFavoriteFromStorage = function removeFavoriteFromStorage(movie) {
     });
     favorites.splice(index, 1);
     localStorage.setItem(_secret__WEBPACK_IMPORTED_MODULE_0__.STORAGE_KEY, JSON.stringify(favorites));
+    (0,_Toast__WEBPACK_IMPORTED_MODULE_1__.toast)("Movie removed from favorites", "info");
   } catch (error) {
+    (0,_Toast__WEBPACK_IMPORTED_MODULE_1__.toast)("Something went wrong", "error");
     console.log(error.message);
   }
+};
+
+/***/ }),
+
+/***/ "./src/modules/Toast/index.js":
+/*!************************************!*\
+  !*** ./src/modules/Toast/index.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "toast": () => (/* binding */ toast)
+/* harmony export */ });
+/* harmony import */ var toastify_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! toastify-js */ "./node_modules/toastify-js/src/toastify.js");
+/* harmony import */ var toastify_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(toastify_js__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ *
+ * @param {String} text
+ * @param {String} type
+ * @returns
+ */
+
+var toast = function toast(text, type) {
+  return toastify_js__WEBPACK_IMPORTED_MODULE_0___default()({
+    text: text,
+    duration: 3000,
+    gravity: "top",
+    // `top` or `bottom`
+    position: "right",
+    // `left`, `center` or `right`
+    className: type,
+    // added to `.toast`
+    style: {
+      background: "var(--bgColor)"
+    }
+  }).showToast();
 };
 
 /***/ }),
@@ -2977,6 +3055,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZWJjMDEyMjcyYjBiNTZiODYxZWQ2NDhmMDhjNWZmMCIsInN1YiI6IjYxMjk1ZDVmMTI2ZWMzMDA0NDBlNjA1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8st5pc74exvs3-LFPmEwC-oMTHWRy_J1WBxra9Ud95s";
 var STORAGE_KEY = "favorited_movies";
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/toastify-js/src/toastify.css":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/toastify-js/src/toastify.css ***!
+  \*****************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "/*!\n * Toastify js 1.12.0\n * https://github.com/apvarun/toastify-js\n * @license MIT licensed\n *\n * Copyright (C) 2018 Varun A P\n */\n\n.toastify {\n    padding: 12px 20px;\n    color: #ffffff;\n    display: inline-block;\n    box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);\n    background: -webkit-linear-gradient(315deg, #73a5ff, #5477f5);\n    background: linear-gradient(135deg, #73a5ff, #5477f5);\n    position: fixed;\n    opacity: 0;\n    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);\n    border-radius: 2px;\n    cursor: pointer;\n    text-decoration: none;\n    max-width: calc(50% - 20px);\n    z-index: 2147483647;\n}\n\n.toastify.on {\n    opacity: 1;\n}\n\n.toast-close {\n    background: transparent;\n    border: 0;\n    color: white;\n    cursor: pointer;\n    font-family: inherit;\n    font-size: 1em;\n    opacity: 0.4;\n    padding: 0 5px;\n}\n\n.toastify-right {\n    right: 15px;\n}\n\n.toastify-left {\n    left: 15px;\n}\n\n.toastify-top {\n    top: -150px;\n}\n\n.toastify-bottom {\n    bottom: -150px;\n}\n\n.toastify-rounded {\n    border-radius: 25px;\n}\n\n.toastify-avatar {\n    width: 1.5em;\n    height: 1.5em;\n    margin: -7px 5px;\n    border-radius: 2px;\n}\n\n.toastify-center {\n    margin-left: auto;\n    margin-right: auto;\n    left: 0;\n    right: 0;\n    max-width: fit-content;\n    max-width: -moz-fit-content;\n}\n\n@media only screen and (max-width: 360px) {\n    .toastify-right, .toastify-left {\n        margin-left: auto;\n        margin-right: auto;\n        left: 0;\n        right: 0;\n        max-width: fit-content;\n    }\n}\n", "",{"version":3,"sources":["webpack://./node_modules/toastify-js/src/toastify.css"],"names":[],"mappings":"AAAA;;;;;;EAME;;AAEF;IACI,kBAAkB;IAClB,cAAc;IACd,qBAAqB;IACrB,uFAAuF;IACvF,6DAA6D;IAC7D,qDAAqD;IACrD,eAAe;IACf,UAAU;IACV,wDAAwD;IACxD,kBAAkB;IAClB,eAAe;IACf,qBAAqB;IACrB,2BAA2B;IAC3B,mBAAmB;AACvB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,uBAAuB;IACvB,SAAS;IACT,YAAY;IACZ,eAAe;IACf,oBAAoB;IACpB,cAAc;IACd,YAAY;IACZ,cAAc;AAClB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,kBAAkB;IAClB,OAAO;IACP,QAAQ;IACR,sBAAsB;IACtB,2BAA2B;AAC/B;;AAEA;IACI;QACI,iBAAiB;QACjB,kBAAkB;QAClB,OAAO;QACP,QAAQ;QACR,sBAAsB;IAC1B;AACJ","sourcesContent":["/*!\n * Toastify js 1.12.0\n * https://github.com/apvarun/toastify-js\n * @license MIT licensed\n *\n * Copyright (C) 2018 Varun A P\n */\n\n.toastify {\n    padding: 12px 20px;\n    color: #ffffff;\n    display: inline-block;\n    box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3);\n    background: -webkit-linear-gradient(315deg, #73a5ff, #5477f5);\n    background: linear-gradient(135deg, #73a5ff, #5477f5);\n    position: fixed;\n    opacity: 0;\n    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);\n    border-radius: 2px;\n    cursor: pointer;\n    text-decoration: none;\n    max-width: calc(50% - 20px);\n    z-index: 2147483647;\n}\n\n.toastify.on {\n    opacity: 1;\n}\n\n.toast-close {\n    background: transparent;\n    border: 0;\n    color: white;\n    cursor: pointer;\n    font-family: inherit;\n    font-size: 1em;\n    opacity: 0.4;\n    padding: 0 5px;\n}\n\n.toastify-right {\n    right: 15px;\n}\n\n.toastify-left {\n    left: 15px;\n}\n\n.toastify-top {\n    top: -150px;\n}\n\n.toastify-bottom {\n    bottom: -150px;\n}\n\n.toastify-rounded {\n    border-radius: 25px;\n}\n\n.toastify-avatar {\n    width: 1.5em;\n    height: 1.5em;\n    margin: -7px 5px;\n    border-radius: 2px;\n}\n\n.toastify-center {\n    margin-left: auto;\n    margin-right: auto;\n    left: 0;\n    right: 0;\n    max-width: fit-content;\n    max-width: -moz-fit-content;\n}\n\n@media only screen and (max-width: 360px) {\n    .toastify-right, .toastify-left {\n        margin-left: auto;\n        margin-right: auto;\n        left: 0;\n        right: 0;\n        max-width: fit-content;\n    }\n}\n"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
 
 /***/ }),
 
@@ -3001,7 +3106,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  font-family: \"Kumbh Sans\", sans-serif;\n  box-sizing: border-box;\n}\n\n:root {\n  --bgColor: #17162e;\n  --white: #ffffff;\n  --input-bg: rgba(255, 255, 255, 0.2);\n  --white-transparent: #8a8a8a;\n  --checked: #706ea8;\n  --card: #1d1c3b;\n  --card-shadow: 32.8387px 24.5482px 79px rgba(0, 0, 0, 0.15),\n    23.8851px 17.855px 53.2479px rgba(0, 0, 0, 0.121406),\n    16.6246px 12.4276px 34.4391px rgba(0, 0, 0, 0.10125),\n    10.9035px 8.15079px 21.3701px rgba(0, 0, 0, 0.0867188),\n    6.56775px 4.90965px 12.8375px rgba(0, 0, 0, 0.075),\n    3.46346px 2.58907px 7.6377px rgba(0, 0, 0, 0.0632813),\n    1.4367px 1.07399px 4.56719px rgba(0, 0, 0, 0.04875),\n    0.333519px 0.249318px 2.42246px rgba(0, 0, 0, 0.0285938);\n  --text-color: #acacac;\n}\n\nbody {\n  background: var(--bgColor);\n}\n\n.header {\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-around;\n  width: 100%;\n  height: 345px;\n  color: var(--white);\n  padding: 20px 0;\n  height: 250px;\n}\n\n.header h1 {\n  font-weight: 600;\n}\n\n.search {\n  display: flex;\n  position: relative;\n  width: 634px;\n  height: 74px;\n}\n\n.search input {\n  border-radius: 8px;\n  color: var(--white);\n  width: 100%;\n  height: 100%;\n  outline: none;\n  padding-left: 24px;\n  background: var(--input-bg);\n  border: none;\n  font-size: 18px;\n}\n\n.search input::placeholder {\n  color: var(--white-transparent);\n}\n\n.search .icon {\n  position: absolute;\n  color: var(--white-transparent);\n  right: 0;\n  top: 0;\n  text-align: center;\n  padding: 17px 10px;\n  font-size: 40px;\n  cursor: pointer;\n}\n\n.search .icon:hover {\n  color: var(--white);\n}\n\n.header h1 {\n  font-size: 36px;\n}\n\n.filter {\n  display: flex;\n  align-items: center;\n}\n\n.filter,\n.filter input[type=\"checkbox\"],\n.filter label {\n  cursor: pointer;\n}\n\n.filter input[type=\"checkbox\"] {\n  accent-color: var(--checked);\n  height: 16px;\n  width: 16px;\n}\n\n.filter label {\n  font-size: 18px;\n  user-select: none;\n  margin-left: 10px;\n  font-weight: 600;\n}\n\n.card-container {\n  margin-top: 250px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  width: 100%;\n  padding: 50px 0;\n  height: calc(100vh - 300px);\n  direction: rtl;\n}\n\n.cards {\n  padding: 0 1px 0 0;\n  overflow-y: auto;\n  direction: ltr;\n  height: 100%;\n}\n\n.card {\n  padding: 30px;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  width: 1224px;\n  height: auto;\n  background: var(--card);\n  box-shadow: var(--card-shadow);\n  margin-bottom: 48px;\n  border-radius: 8px;\n}\n\n.card .card-image {\n  width: 215px;\n  height: 162px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.card-image img {\n  width: 140px;\n  height: 140px;\n  border-radius: 50%;\n}\n.card .card-details {\n  padding: 0 30px;\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  height: 100%;\n  width: calc(100% / 3);\n  color: var(--white);\n}\n\n.card-details h1 {\n  margin-bottom: 20px;\n  font-weight: 500;\n  word-break: keep-all;\n}\n\n.card-details .icons {\n  display: flex;\n  align-items: center;\n  font-size: 18px;\n  text-align: center;\n}\n\n.icons span {\n  font-weight: 400;\n  line-height: 22px;\n  margin-right: 10px;\n}\n\n.icons p {\n  margin-right: 45px;\n  font-weight: 400;\n}\n.card .description {\n  width: 592px;\n  /* height: 128px; */\n  font-weight: 500;\n  font-size: 18px;\n  line-height: 32px;\n  color: var(--text-color);\n}\n\n.star {\n  color: #d7a82f;\n  cursor: pointer;\n}\n\n.favorite {\n  color: #ba0707;\n  cursor: pointer;\n}\n\n.hidden {\n  display: none;\n}\n\n/* Designing for scroll-bar */\n::-webkit-scrollbar {\n  width: 0px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: var(--bgColor);\n  border-radius: 5px;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  border-radius: 5px;\n  background: var(--white-transparent);\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: var(--white-transparent);\n}\n", "",{"version":3,"sources":["webpack://./src/styles/index.css"],"names":[],"mappings":"AAEA;EACE,SAAS;EACT,UAAU;EACV,qCAAqC;EACrC,sBAAsB;AACxB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,oCAAoC;EACpC,4BAA4B;EAC5B,kBAAkB;EAClB,eAAe;EACf;;;;;;;4DAO0D;EAC1D,qBAAqB;AACvB;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,eAAe;EACf,OAAO;EACP,MAAM;EACN,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,6BAA6B;EAC7B,WAAW;EACX,aAAa;EACb,mBAAmB;EACnB,eAAe;EACf,aAAa;AACf;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,kBAAkB;EAClB,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,kBAAkB;EAClB,2BAA2B;EAC3B,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,+BAA+B;AACjC;;AAEA;EACE,kBAAkB;EAClB,+BAA+B;EAC/B,QAAQ;EACR,MAAM;EACN,kBAAkB;EAClB,kBAAkB;EAClB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;;;EAGE,eAAe;AACjB;;AAEA;EACE,4BAA4B;EAC5B,YAAY;EACZ,WAAW;AACb;;AAEA;EACE,eAAe;EACf,iBAAiB;EACjB,iBAAiB;EACjB,gBAAgB;AAClB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,sBAAsB;EACtB,WAAW;EACX,eAAe;EACf,2BAA2B;EAC3B,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;EACd,YAAY;AACd;;AAEA;EACE,aAAa;EACb,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,aAAa;EACb,YAAY;EACZ,uBAAuB;EACvB,8BAA8B;EAC9B,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,mBAAmB;EACnB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,kBAAkB;AACpB;AACA;EACE,eAAe;EACf,aAAa;EACb,uBAAuB;EACvB,sBAAsB;EACtB,YAAY;EACZ,qBAAqB;EACrB,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,oBAAoB;AACtB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,eAAe;EACf,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,YAAY;EACZ,mBAAmB;EACnB,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,wBAAwB;AAC1B;;AAEA;EACE,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,aAAa;AACf;;AAEA,6BAA6B;AAC7B;EACE,UAAU;AACZ;;AAEA,UAAU;AACV;EACE,0BAA0B;EAC1B,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;EAClB,oCAAoC;AACtC;;AAEA,oBAAoB;AACpB;EACE,oCAAoC;AACtC","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600&display=swap\");\n\n* {\n  margin: 0;\n  padding: 0;\n  font-family: \"Kumbh Sans\", sans-serif;\n  box-sizing: border-box;\n}\n\n:root {\n  --bgColor: #17162e;\n  --white: #ffffff;\n  --input-bg: rgba(255, 255, 255, 0.2);\n  --white-transparent: #8a8a8a;\n  --checked: #706ea8;\n  --card: #1d1c3b;\n  --card-shadow: 32.8387px 24.5482px 79px rgba(0, 0, 0, 0.15),\n    23.8851px 17.855px 53.2479px rgba(0, 0, 0, 0.121406),\n    16.6246px 12.4276px 34.4391px rgba(0, 0, 0, 0.10125),\n    10.9035px 8.15079px 21.3701px rgba(0, 0, 0, 0.0867188),\n    6.56775px 4.90965px 12.8375px rgba(0, 0, 0, 0.075),\n    3.46346px 2.58907px 7.6377px rgba(0, 0, 0, 0.0632813),\n    1.4367px 1.07399px 4.56719px rgba(0, 0, 0, 0.04875),\n    0.333519px 0.249318px 2.42246px rgba(0, 0, 0, 0.0285938);\n  --text-color: #acacac;\n}\n\nbody {\n  background: var(--bgColor);\n}\n\n.header {\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-around;\n  width: 100%;\n  height: 345px;\n  color: var(--white);\n  padding: 20px 0;\n  height: 250px;\n}\n\n.header h1 {\n  font-weight: 600;\n}\n\n.search {\n  display: flex;\n  position: relative;\n  width: 634px;\n  height: 74px;\n}\n\n.search input {\n  border-radius: 8px;\n  color: var(--white);\n  width: 100%;\n  height: 100%;\n  outline: none;\n  padding-left: 24px;\n  background: var(--input-bg);\n  border: none;\n  font-size: 18px;\n}\n\n.search input::placeholder {\n  color: var(--white-transparent);\n}\n\n.search .icon {\n  position: absolute;\n  color: var(--white-transparent);\n  right: 0;\n  top: 0;\n  text-align: center;\n  padding: 17px 10px;\n  font-size: 40px;\n  cursor: pointer;\n}\n\n.search .icon:hover {\n  color: var(--white);\n}\n\n.header h1 {\n  font-size: 36px;\n}\n\n.filter {\n  display: flex;\n  align-items: center;\n}\n\n.filter,\n.filter input[type=\"checkbox\"],\n.filter label {\n  cursor: pointer;\n}\n\n.filter input[type=\"checkbox\"] {\n  accent-color: var(--checked);\n  height: 16px;\n  width: 16px;\n}\n\n.filter label {\n  font-size: 18px;\n  user-select: none;\n  margin-left: 10px;\n  font-weight: 600;\n}\n\n.card-container {\n  margin-top: 250px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  width: 100%;\n  padding: 50px 0;\n  height: calc(100vh - 300px);\n  direction: rtl;\n}\n\n.cards {\n  padding: 0 1px 0 0;\n  overflow-y: auto;\n  direction: ltr;\n  height: 100%;\n}\n\n.card {\n  padding: 30px;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  width: 1224px;\n  height: auto;\n  background: var(--card);\n  box-shadow: var(--card-shadow);\n  margin-bottom: 48px;\n  border-radius: 8px;\n}\n\n.card .card-image {\n  width: 215px;\n  height: 162px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.card-image img {\n  width: 140px;\n  height: 140px;\n  border-radius: 50%;\n}\n.card .card-details {\n  padding: 0 30px;\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  height: 100%;\n  width: calc(100% / 3);\n  color: var(--white);\n}\n\n.card-details h1 {\n  margin-bottom: 20px;\n  font-weight: 500;\n  word-break: keep-all;\n}\n\n.card-details .icons {\n  display: flex;\n  align-items: center;\n  font-size: 18px;\n  text-align: center;\n}\n\n.icons span {\n  font-weight: 400;\n  line-height: 22px;\n  margin-right: 10px;\n}\n\n.icons p {\n  margin-right: 45px;\n  font-weight: 400;\n}\n.card .description {\n  width: 592px;\n  /* height: 128px; */\n  font-weight: 500;\n  font-size: 18px;\n  line-height: 32px;\n  color: var(--text-color);\n}\n\n.star {\n  color: #d7a82f;\n  cursor: pointer;\n}\n\n.favorite {\n  color: #ba0707;\n  cursor: pointer;\n}\n\n.hidden {\n  display: none;\n}\n\n/* Designing for scroll-bar */\n::-webkit-scrollbar {\n  width: 0px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: var(--bgColor);\n  border-radius: 5px;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  border-radius: 5px;\n  background: var(--white-transparent);\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: var(--white-transparent);\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  margin: 0;\n  padding: 0;\n  font-family: \"Kumbh Sans\", sans-serif;\n  box-sizing: border-box;\n}\n\n:root {\n  --bgColor: #17162e;\n  --white: #ffffff;\n  --input-bg: rgba(255, 255, 255, 0.2);\n  --white-transparent: #8a8a8a;\n  --checked: #706ea8;\n  --card: #1d1c3b;\n  --card-shadow: 32.8387px 24.5482px 79px rgba(0, 0, 0, 0.15),\n    23.8851px 17.855px 53.2479px rgba(0, 0, 0, 0.121406),\n    16.6246px 12.4276px 34.4391px rgba(0, 0, 0, 0.10125),\n    10.9035px 8.15079px 21.3701px rgba(0, 0, 0, 0.0867188),\n    6.56775px 4.90965px 12.8375px rgba(0, 0, 0, 0.075),\n    3.46346px 2.58907px 7.6377px rgba(0, 0, 0, 0.0632813),\n    1.4367px 1.07399px 4.56719px rgba(0, 0, 0, 0.04875),\n    0.333519px 0.249318px 2.42246px rgba(0, 0, 0, 0.0285938);\n  --text-color: #acacac;\n}\n\nbody {\n  background: var(--bgColor);\n}\n\n.header {\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-around;\n  width: 100%;\n  height: 345px;\n  color: var(--white);\n  padding: 20px 0;\n  height: 250px;\n}\n\n.header h1 {\n  font-weight: 600;\n}\n\n.search {\n  display: flex;\n  position: relative;\n  width: 634px;\n  height: 74px;\n}\n\n.search input {\n  border-radius: 8px;\n  color: var(--white);\n  width: 100%;\n  height: 100%;\n  outline: none;\n  padding-left: 24px;\n  background: var(--input-bg);\n  border: none;\n  font-size: 18px;\n}\n\n.search input::placeholder {\n  color: var(--white-transparent);\n}\n\n.search .icon {\n  position: absolute;\n  color: var(--white-transparent);\n  right: 0;\n  top: 0;\n  text-align: center;\n  padding: 17px 10px;\n  font-size: 40px;\n  cursor: pointer;\n}\n\n.search .icon:hover {\n  color: var(--white);\n}\n\n.header h1 {\n  font-size: 36px;\n}\n\n.filter {\n  display: flex;\n  align-items: center;\n}\n\n.filter,\n.filter input[type=\"checkbox\"],\n.filter label {\n  cursor: pointer;\n}\n\n.filter input[type=\"checkbox\"] {\n  accent-color: var(--checked);\n  height: 16px;\n  width: 16px;\n}\n\n.filter label {\n  font-size: 18px;\n  user-select: none;\n  margin-left: 10px;\n  font-weight: 600;\n}\n\n.card-container {\n  margin-top: 250px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  width: 100%;\n  padding: 50px 0;\n  height: calc(100vh - 300px);\n  direction: rtl;\n}\n\n.cards {\n  padding: 0 1px 0 0;\n  overflow-y: auto;\n  direction: ltr;\n  height: 100%;\n}\n\n.card {\n  padding: 30px;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  width: 1224px;\n  height: auto;\n  background: var(--card);\n  box-shadow: var(--card-shadow);\n  margin-bottom: 48px;\n  border-radius: 8px;\n}\n\n.card .card-image {\n  width: 215px;\n  height: 162px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.card-image img {\n  width: 140px;\n  height: 140px;\n  border-radius: 50%;\n}\n.card .card-details {\n  padding: 0 30px;\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  height: 100%;\n  width: calc(100% / 3);\n  color: var(--white);\n}\n\n.card-details h1 {\n  margin-bottom: 20px;\n  font-weight: 500;\n  word-break: keep-all;\n}\n\n.card-details .icons {\n  display: flex;\n  align-items: center;\n  font-size: 18px;\n  text-align: center;\n}\n\n.icons span {\n  font-weight: 400;\n  line-height: 22px;\n  margin-right: 10px;\n}\n\n.icons p {\n  margin-right: 45px;\n  font-weight: 400;\n}\n.card .description {\n  width: 592px;\n  /* height: 128px; */\n  font-weight: 500;\n  font-size: 18px;\n  line-height: 32px;\n  color: var(--text-color);\n}\n\n.star {\n  color: #d7a82f;\n  cursor: pointer;\n}\n\n.favorite {\n  color: #ba0707;\n  cursor: pointer;\n}\n\n.hidden {\n  display: none;\n}\n\n.success {\n  color: #00ffb3;\n}\n\n.error {\n  color: #fb3a3a;\n}\n\n.info {\n  color: #f4ff60;\n}\n\n#loading {\n  display: none;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: calc(100vh - 300px);\n}\n\n#loading div {\n  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\n  transform-origin: 40px 40px;\n}\n\n#loading div:after {\n  content: \" \";\n  display: block;\n  position: absolute;\n  width: 7px;\n  height: 7px;\n  border-radius: 50%;\n  background: #fff;\n  margin: -4px 0 0 -4px;\n}\n\n#loading div:nth-child(1) {\n  animation-delay: -0.036s;\n}\n\n#loading div:nth-child(1):after {\n  top: 63px;\n  left: 63px;\n}\n\n#loading div:nth-child(2) {\n  animation-delay: -0.072s;\n}\n\n#loading div:nth-child(2):after {\n  top: 68px;\n  left: 56px;\n}\n\n#loadingdiv:nth-child(3) {\n  animation-delay: -0.108s;\n}\n\n#loading div:nth-child(3):after {\n  top: 71px;\n  left: 48px;\n}\n\n#loading div:nth-child(4) {\n  animation-delay: -0.144s;\n}\n\n#loading div:nth-child(4):after {\n  top: 72px;\n  left: 40px;\n}\n\n#loading div:nth-child(5) {\n  animation-delay: -0.18s;\n}\n\n#loading div:nth-child(5):after {\n  top: 71px;\n  left: 32px;\n}\n\n#loading div:nth-child(6) {\n  animation-delay: -0.216s;\n}\n\n#loading div:nth-child(6):after {\n  top: 68px;\n  left: 24px;\n}\n\n#loading div:nth-child(7) {\n  animation-delay: -0.252s;\n}\n\n#loading div:nth-child(7):after {\n  top: 63px;\n  left: 17px;\n}\n\n#loading div:nth-child(8) {\n  animation-delay: -0.288s;\n}\n\n#loading div:nth-child(8):after {\n  top: 56px;\n  left: 12px;\n}\n\n@keyframes lds-roller {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\n/* Designing for scroll-bar */\n::-webkit-scrollbar {\n  width: 0px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: var(--bgColor);\n  border-radius: 5px;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  border-radius: 5px;\n  background: var(--white-transparent);\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: var(--white-transparent);\n}\n", "",{"version":3,"sources":["webpack://./src/styles/index.css"],"names":[],"mappings":"AAEA;EACE,SAAS;EACT,UAAU;EACV,qCAAqC;EACrC,sBAAsB;AACxB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,oCAAoC;EACpC,4BAA4B;EAC5B,kBAAkB;EAClB,eAAe;EACf;;;;;;;4DAO0D;EAC1D,qBAAqB;AACvB;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,eAAe;EACf,OAAO;EACP,MAAM;EACN,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,6BAA6B;EAC7B,WAAW;EACX,aAAa;EACb,mBAAmB;EACnB,eAAe;EACf,aAAa;AACf;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,kBAAkB;EAClB,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,WAAW;EACX,YAAY;EACZ,aAAa;EACb,kBAAkB;EAClB,2BAA2B;EAC3B,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,+BAA+B;AACjC;;AAEA;EACE,kBAAkB;EAClB,+BAA+B;EAC/B,QAAQ;EACR,MAAM;EACN,kBAAkB;EAClB,kBAAkB;EAClB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;;;EAGE,eAAe;AACjB;;AAEA;EACE,4BAA4B;EAC5B,YAAY;EACZ,WAAW;AACb;;AAEA;EACE,eAAe;EACf,iBAAiB;EACjB,iBAAiB;EACjB,gBAAgB;AAClB;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,sBAAsB;EACtB,WAAW;EACX,eAAe;EACf,2BAA2B;EAC3B,cAAc;AAChB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,cAAc;EACd,YAAY;AACd;;AAEA;EACE,aAAa;EACb,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,aAAa;EACb,YAAY;EACZ,uBAAuB;EACvB,8BAA8B;EAC9B,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,aAAa;EACb,mBAAmB;EACnB,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,kBAAkB;AACpB;AACA;EACE,eAAe;EACf,aAAa;EACb,uBAAuB;EACvB,sBAAsB;EACtB,YAAY;EACZ,qBAAqB;EACrB,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,gBAAgB;EAChB,oBAAoB;AACtB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,eAAe;EACf,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;AACA;EACE,YAAY;EACZ,mBAAmB;EACnB,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,wBAAwB;AAC1B;;AAEA;EACE,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,WAAW;EACX,2BAA2B;AAC7B;;AAEA;EACE,gEAAgE;EAChE,2BAA2B;AAC7B;;AAEA;EACE,YAAY;EACZ,cAAc;EACd,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,kBAAkB;EAClB,gBAAgB;EAChB,qBAAqB;AACvB;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,uBAAuB;AACzB;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE,wBAAwB;AAC1B;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;EACE;IACE,uBAAuB;EACzB;EACA;IACE,yBAAyB;EAC3B;AACF;;AAEA,6BAA6B;AAC7B;EACE,UAAU;AACZ;;AAEA,UAAU;AACV;EACE,0BAA0B;EAC1B,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;EAClB,oCAAoC;AACtC;;AAEA,oBAAoB;AACpB;EACE,oCAAoC;AACtC","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600&display=swap\");\n\n* {\n  margin: 0;\n  padding: 0;\n  font-family: \"Kumbh Sans\", sans-serif;\n  box-sizing: border-box;\n}\n\n:root {\n  --bgColor: #17162e;\n  --white: #ffffff;\n  --input-bg: rgba(255, 255, 255, 0.2);\n  --white-transparent: #8a8a8a;\n  --checked: #706ea8;\n  --card: #1d1c3b;\n  --card-shadow: 32.8387px 24.5482px 79px rgba(0, 0, 0, 0.15),\n    23.8851px 17.855px 53.2479px rgba(0, 0, 0, 0.121406),\n    16.6246px 12.4276px 34.4391px rgba(0, 0, 0, 0.10125),\n    10.9035px 8.15079px 21.3701px rgba(0, 0, 0, 0.0867188),\n    6.56775px 4.90965px 12.8375px rgba(0, 0, 0, 0.075),\n    3.46346px 2.58907px 7.6377px rgba(0, 0, 0, 0.0632813),\n    1.4367px 1.07399px 4.56719px rgba(0, 0, 0, 0.04875),\n    0.333519px 0.249318px 2.42246px rgba(0, 0, 0, 0.0285938);\n  --text-color: #acacac;\n}\n\nbody {\n  background: var(--bgColor);\n}\n\n.header {\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-around;\n  width: 100%;\n  height: 345px;\n  color: var(--white);\n  padding: 20px 0;\n  height: 250px;\n}\n\n.header h1 {\n  font-weight: 600;\n}\n\n.search {\n  display: flex;\n  position: relative;\n  width: 634px;\n  height: 74px;\n}\n\n.search input {\n  border-radius: 8px;\n  color: var(--white);\n  width: 100%;\n  height: 100%;\n  outline: none;\n  padding-left: 24px;\n  background: var(--input-bg);\n  border: none;\n  font-size: 18px;\n}\n\n.search input::placeholder {\n  color: var(--white-transparent);\n}\n\n.search .icon {\n  position: absolute;\n  color: var(--white-transparent);\n  right: 0;\n  top: 0;\n  text-align: center;\n  padding: 17px 10px;\n  font-size: 40px;\n  cursor: pointer;\n}\n\n.search .icon:hover {\n  color: var(--white);\n}\n\n.header h1 {\n  font-size: 36px;\n}\n\n.filter {\n  display: flex;\n  align-items: center;\n}\n\n.filter,\n.filter input[type=\"checkbox\"],\n.filter label {\n  cursor: pointer;\n}\n\n.filter input[type=\"checkbox\"] {\n  accent-color: var(--checked);\n  height: 16px;\n  width: 16px;\n}\n\n.filter label {\n  font-size: 18px;\n  user-select: none;\n  margin-left: 10px;\n  font-weight: 600;\n}\n\n.card-container {\n  margin-top: 250px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  width: 100%;\n  padding: 50px 0;\n  height: calc(100vh - 300px);\n  direction: rtl;\n}\n\n.cards {\n  padding: 0 1px 0 0;\n  overflow-y: auto;\n  direction: ltr;\n  height: 100%;\n}\n\n.card {\n  padding: 30px;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  width: 1224px;\n  height: auto;\n  background: var(--card);\n  box-shadow: var(--card-shadow);\n  margin-bottom: 48px;\n  border-radius: 8px;\n}\n\n.card .card-image {\n  width: 215px;\n  height: 162px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.card-image img {\n  width: 140px;\n  height: 140px;\n  border-radius: 50%;\n}\n.card .card-details {\n  padding: 0 30px;\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  height: 100%;\n  width: calc(100% / 3);\n  color: var(--white);\n}\n\n.card-details h1 {\n  margin-bottom: 20px;\n  font-weight: 500;\n  word-break: keep-all;\n}\n\n.card-details .icons {\n  display: flex;\n  align-items: center;\n  font-size: 18px;\n  text-align: center;\n}\n\n.icons span {\n  font-weight: 400;\n  line-height: 22px;\n  margin-right: 10px;\n}\n\n.icons p {\n  margin-right: 45px;\n  font-weight: 400;\n}\n.card .description {\n  width: 592px;\n  /* height: 128px; */\n  font-weight: 500;\n  font-size: 18px;\n  line-height: 32px;\n  color: var(--text-color);\n}\n\n.star {\n  color: #d7a82f;\n  cursor: pointer;\n}\n\n.favorite {\n  color: #ba0707;\n  cursor: pointer;\n}\n\n.hidden {\n  display: none;\n}\n\n.success {\n  color: #00ffb3;\n}\n\n.error {\n  color: #fb3a3a;\n}\n\n.info {\n  color: #f4ff60;\n}\n\n#loading {\n  display: none;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: calc(100vh - 300px);\n}\n\n#loading div {\n  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\n  transform-origin: 40px 40px;\n}\n\n#loading div:after {\n  content: \" \";\n  display: block;\n  position: absolute;\n  width: 7px;\n  height: 7px;\n  border-radius: 50%;\n  background: #fff;\n  margin: -4px 0 0 -4px;\n}\n\n#loading div:nth-child(1) {\n  animation-delay: -0.036s;\n}\n\n#loading div:nth-child(1):after {\n  top: 63px;\n  left: 63px;\n}\n\n#loading div:nth-child(2) {\n  animation-delay: -0.072s;\n}\n\n#loading div:nth-child(2):after {\n  top: 68px;\n  left: 56px;\n}\n\n#loadingdiv:nth-child(3) {\n  animation-delay: -0.108s;\n}\n\n#loading div:nth-child(3):after {\n  top: 71px;\n  left: 48px;\n}\n\n#loading div:nth-child(4) {\n  animation-delay: -0.144s;\n}\n\n#loading div:nth-child(4):after {\n  top: 72px;\n  left: 40px;\n}\n\n#loading div:nth-child(5) {\n  animation-delay: -0.18s;\n}\n\n#loading div:nth-child(5):after {\n  top: 71px;\n  left: 32px;\n}\n\n#loading div:nth-child(6) {\n  animation-delay: -0.216s;\n}\n\n#loading div:nth-child(6):after {\n  top: 68px;\n  left: 24px;\n}\n\n#loading div:nth-child(7) {\n  animation-delay: -0.252s;\n}\n\n#loading div:nth-child(7):after {\n  top: 63px;\n  left: 17px;\n}\n\n#loading div:nth-child(8) {\n  animation-delay: -0.288s;\n}\n\n#loading div:nth-child(8):after {\n  top: 56px;\n  left: 12px;\n}\n\n@keyframes lds-roller {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\n/* Designing for scroll-bar */\n::-webkit-scrollbar {\n  width: 0px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: var(--bgColor);\n  border-radius: 5px;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  border-radius: 5px;\n  background: var(--white-transparent);\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: var(--white-transparent);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3149,6 +3254,61 @@ module.exports = function (item) {
 
   return [content].join("\n");
 };
+
+/***/ }),
+
+/***/ "./node_modules/toastify-js/src/toastify.css":
+/*!***************************************************!*\
+  !*** ./node_modules/toastify-js/src/toastify.css ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _css_loader_dist_cjs_js_toastify_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js!./toastify.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/toastify-js/src/toastify.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_toastify_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_toastify_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _css_loader_dist_cjs_js_toastify_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _css_loader_dist_cjs_js_toastify_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
 
 /***/ }),
 
@@ -3519,6 +3679,461 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./node_modules/toastify-js/src/toastify.js":
+/*!**************************************************!*\
+  !*** ./node_modules/toastify-js/src/toastify.js ***!
+  \**************************************************/
+/***/ (function(module) {
+
+/*!
+ * Toastify js 1.12.0
+ * https://github.com/apvarun/toastify-js
+ * @license MIT licensed
+ *
+ * Copyright (C) 2018 Varun A P
+ */
+(function(root, factory) {
+  if ( true && module.exports) {
+    module.exports = factory();
+  } else {
+    root.Toastify = factory();
+  }
+})(this, function(global) {
+  // Object initialization
+  var Toastify = function(options) {
+      // Returning a new init object
+      return new Toastify.lib.init(options);
+    },
+    // Library version
+    version = "1.12.0";
+
+  // Set the default global options
+  Toastify.defaults = {
+    oldestFirst: true,
+    text: "Toastify is awesome!",
+    node: undefined,
+    duration: 3000,
+    selector: undefined,
+    callback: function () {
+    },
+    destination: undefined,
+    newWindow: false,
+    close: false,
+    gravity: "toastify-top",
+    positionLeft: false,
+    position: '',
+    backgroundColor: '',
+    avatar: "",
+    className: "",
+    stopOnFocus: true,
+    onClick: function () {
+    },
+    offset: {x: 0, y: 0},
+    escapeMarkup: true,
+    ariaLive: 'polite',
+    style: {background: ''}
+  };
+
+  // Defining the prototype of the object
+  Toastify.lib = Toastify.prototype = {
+    toastify: version,
+
+    constructor: Toastify,
+
+    // Initializing the object with required parameters
+    init: function(options) {
+      // Verifying and validating the input object
+      if (!options) {
+        options = {};
+      }
+
+      // Creating the options object
+      this.options = {};
+
+      this.toastElement = null;
+
+      // Validating the options
+      this.options.text = options.text || Toastify.defaults.text; // Display message
+      this.options.node = options.node || Toastify.defaults.node;  // Display content as node
+      this.options.duration = options.duration === 0 ? 0 : options.duration || Toastify.defaults.duration; // Display duration
+      this.options.selector = options.selector || Toastify.defaults.selector; // Parent selector
+      this.options.callback = options.callback || Toastify.defaults.callback; // Callback after display
+      this.options.destination = options.destination || Toastify.defaults.destination; // On-click destination
+      this.options.newWindow = options.newWindow || Toastify.defaults.newWindow; // Open destination in new window
+      this.options.close = options.close || Toastify.defaults.close; // Show toast close icon
+      this.options.gravity = options.gravity === "bottom" ? "toastify-bottom" : Toastify.defaults.gravity; // toast position - top or bottom
+      this.options.positionLeft = options.positionLeft || Toastify.defaults.positionLeft; // toast position - left or right
+      this.options.position = options.position || Toastify.defaults.position; // toast position - left or right
+      this.options.backgroundColor = options.backgroundColor || Toastify.defaults.backgroundColor; // toast background color
+      this.options.avatar = options.avatar || Toastify.defaults.avatar; // img element src - url or a path
+      this.options.className = options.className || Toastify.defaults.className; // additional class names for the toast
+      this.options.stopOnFocus = options.stopOnFocus === undefined ? Toastify.defaults.stopOnFocus : options.stopOnFocus; // stop timeout on focus
+      this.options.onClick = options.onClick || Toastify.defaults.onClick; // Callback after click
+      this.options.offset = options.offset || Toastify.defaults.offset; // toast offset
+      this.options.escapeMarkup = options.escapeMarkup !== undefined ? options.escapeMarkup : Toastify.defaults.escapeMarkup;
+      this.options.ariaLive = options.ariaLive || Toastify.defaults.ariaLive;
+      this.options.style = options.style || Toastify.defaults.style;
+      if(options.backgroundColor) {
+        this.options.style.background = options.backgroundColor;
+      }
+
+      // Returning the current object for chaining functions
+      return this;
+    },
+
+    // Building the DOM element
+    buildToast: function() {
+      // Validating if the options are defined
+      if (!this.options) {
+        throw "Toastify is not initialized";
+      }
+
+      // Creating the DOM object
+      var divElement = document.createElement("div");
+      divElement.className = "toastify on " + this.options.className;
+
+      // Positioning toast to left or right or center
+      if (!!this.options.position) {
+        divElement.className += " toastify-" + this.options.position;
+      } else {
+        // To be depreciated in further versions
+        if (this.options.positionLeft === true) {
+          divElement.className += " toastify-left";
+          console.warn('Property `positionLeft` will be depreciated in further versions. Please use `position` instead.')
+        } else {
+          // Default position
+          divElement.className += " toastify-right";
+        }
+      }
+
+      // Assigning gravity of element
+      divElement.className += " " + this.options.gravity;
+
+      if (this.options.backgroundColor) {
+        // This is being deprecated in favor of using the style HTML DOM property
+        console.warn('DEPRECATION NOTICE: "backgroundColor" is being deprecated. Please use the "style.background" property.');
+      }
+
+      // Loop through our style object and apply styles to divElement
+      for (var property in this.options.style) {
+        divElement.style[property] = this.options.style[property];
+      }
+
+      // Announce the toast to screen readers
+      if (this.options.ariaLive) {
+        divElement.setAttribute('aria-live', this.options.ariaLive)
+      }
+
+      // Adding the toast message/node
+      if (this.options.node && this.options.node.nodeType === Node.ELEMENT_NODE) {
+        // If we have a valid node, we insert it
+        divElement.appendChild(this.options.node)
+      } else {
+        if (this.options.escapeMarkup) {
+          divElement.innerText = this.options.text;
+        } else {
+          divElement.innerHTML = this.options.text;
+        }
+
+        if (this.options.avatar !== "") {
+          var avatarElement = document.createElement("img");
+          avatarElement.src = this.options.avatar;
+
+          avatarElement.className = "toastify-avatar";
+
+          if (this.options.position == "left" || this.options.positionLeft === true) {
+            // Adding close icon on the left of content
+            divElement.appendChild(avatarElement);
+          } else {
+            // Adding close icon on the right of content
+            divElement.insertAdjacentElement("afterbegin", avatarElement);
+          }
+        }
+      }
+
+      // Adding a close icon to the toast
+      if (this.options.close === true) {
+        // Create a span for close element
+        var closeElement = document.createElement("button");
+        closeElement.type = "button";
+        closeElement.setAttribute("aria-label", "Close");
+        closeElement.className = "toast-close";
+        closeElement.innerHTML = "&#10006;";
+
+        // Triggering the removal of toast from DOM on close click
+        closeElement.addEventListener(
+          "click",
+          function(event) {
+            event.stopPropagation();
+            this.removeElement(this.toastElement);
+            window.clearTimeout(this.toastElement.timeOutValue);
+          }.bind(this)
+        );
+
+        //Calculating screen width
+        var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+
+        // Adding the close icon to the toast element
+        // Display on the right if screen width is less than or equal to 360px
+        if ((this.options.position == "left" || this.options.positionLeft === true) && width > 360) {
+          // Adding close icon on the left of content
+          divElement.insertAdjacentElement("afterbegin", closeElement);
+        } else {
+          // Adding close icon on the right of content
+          divElement.appendChild(closeElement);
+        }
+      }
+
+      // Clear timeout while toast is focused
+      if (this.options.stopOnFocus && this.options.duration > 0) {
+        var self = this;
+        // stop countdown
+        divElement.addEventListener(
+          "mouseover",
+          function(event) {
+            window.clearTimeout(divElement.timeOutValue);
+          }
+        )
+        // add back the timeout
+        divElement.addEventListener(
+          "mouseleave",
+          function() {
+            divElement.timeOutValue = window.setTimeout(
+              function() {
+                // Remove the toast from DOM
+                self.removeElement(divElement);
+              },
+              self.options.duration
+            )
+          }
+        )
+      }
+
+      // Adding an on-click destination path
+      if (typeof this.options.destination !== "undefined") {
+        divElement.addEventListener(
+          "click",
+          function(event) {
+            event.stopPropagation();
+            if (this.options.newWindow === true) {
+              window.open(this.options.destination, "_blank");
+            } else {
+              window.location = this.options.destination;
+            }
+          }.bind(this)
+        );
+      }
+
+      if (typeof this.options.onClick === "function" && typeof this.options.destination === "undefined") {
+        divElement.addEventListener(
+          "click",
+          function(event) {
+            event.stopPropagation();
+            this.options.onClick();
+          }.bind(this)
+        );
+      }
+
+      // Adding offset
+      if(typeof this.options.offset === "object") {
+
+        var x = getAxisOffsetAValue("x", this.options);
+        var y = getAxisOffsetAValue("y", this.options);
+
+        var xOffset = this.options.position == "left" ? x : "-" + x;
+        var yOffset = this.options.gravity == "toastify-top" ? y : "-" + y;
+
+        divElement.style.transform = "translate(" + xOffset + "," + yOffset + ")";
+
+      }
+
+      // Returning the generated element
+      return divElement;
+    },
+
+    // Displaying the toast
+    showToast: function() {
+      // Creating the DOM object for the toast
+      this.toastElement = this.buildToast();
+
+      // Getting the root element to with the toast needs to be added
+      var rootElement;
+      if (typeof this.options.selector === "string") {
+        rootElement = document.getElementById(this.options.selector);
+      } else if (this.options.selector instanceof HTMLElement || (typeof ShadowRoot !== 'undefined' && this.options.selector instanceof ShadowRoot)) {
+        rootElement = this.options.selector;
+      } else {
+        rootElement = document.body;
+      }
+
+      // Validating if root element is present in DOM
+      if (!rootElement) {
+        throw "Root element is not defined";
+      }
+
+      // Adding the DOM element
+      var elementToInsert = Toastify.defaults.oldestFirst ? rootElement.firstChild : rootElement.lastChild;
+      rootElement.insertBefore(this.toastElement, elementToInsert);
+
+      // Repositioning the toasts in case multiple toasts are present
+      Toastify.reposition();
+
+      if (this.options.duration > 0) {
+        this.toastElement.timeOutValue = window.setTimeout(
+          function() {
+            // Remove the toast from DOM
+            this.removeElement(this.toastElement);
+          }.bind(this),
+          this.options.duration
+        ); // Binding `this` for function invocation
+      }
+
+      // Supporting function chaining
+      return this;
+    },
+
+    hideToast: function() {
+      if (this.toastElement.timeOutValue) {
+        clearTimeout(this.toastElement.timeOutValue);
+      }
+      this.removeElement(this.toastElement);
+    },
+
+    // Removing the element from the DOM
+    removeElement: function(toastElement) {
+      // Hiding the element
+      // toastElement.classList.remove("on");
+      toastElement.className = toastElement.className.replace(" on", "");
+
+      // Removing the element from DOM after transition end
+      window.setTimeout(
+        function() {
+          // remove options node if any
+          if (this.options.node && this.options.node.parentNode) {
+            this.options.node.parentNode.removeChild(this.options.node);
+          }
+
+          // Remove the element from the DOM, only when the parent node was not removed before.
+          if (toastElement.parentNode) {
+            toastElement.parentNode.removeChild(toastElement);
+          }
+
+          // Calling the callback function
+          this.options.callback.call(toastElement);
+
+          // Repositioning the toasts again
+          Toastify.reposition();
+        }.bind(this),
+        400
+      ); // Binding `this` for function invocation
+    },
+  };
+
+  // Positioning the toasts on the DOM
+  Toastify.reposition = function() {
+
+    // Top margins with gravity
+    var topLeftOffsetSize = {
+      top: 15,
+      bottom: 15,
+    };
+    var topRightOffsetSize = {
+      top: 15,
+      bottom: 15,
+    };
+    var offsetSize = {
+      top: 15,
+      bottom: 15,
+    };
+
+    // Get all toast messages on the DOM
+    var allToasts = document.getElementsByClassName("toastify");
+
+    var classUsed;
+
+    // Modifying the position of each toast element
+    for (var i = 0; i < allToasts.length; i++) {
+      // Getting the applied gravity
+      if (containsClass(allToasts[i], "toastify-top") === true) {
+        classUsed = "toastify-top";
+      } else {
+        classUsed = "toastify-bottom";
+      }
+
+      var height = allToasts[i].offsetHeight;
+      classUsed = classUsed.substr(9, classUsed.length-1)
+      // Spacing between toasts
+      var offset = 15;
+
+      var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+
+      // Show toast in center if screen with less than or equal to 360px
+      if (width <= 360) {
+        // Setting the position
+        allToasts[i].style[classUsed] = offsetSize[classUsed] + "px";
+
+        offsetSize[classUsed] += height + offset;
+      } else {
+        if (containsClass(allToasts[i], "toastify-left") === true) {
+          // Setting the position
+          allToasts[i].style[classUsed] = topLeftOffsetSize[classUsed] + "px";
+
+          topLeftOffsetSize[classUsed] += height + offset;
+        } else {
+          // Setting the position
+          allToasts[i].style[classUsed] = topRightOffsetSize[classUsed] + "px";
+
+          topRightOffsetSize[classUsed] += height + offset;
+        }
+      }
+    }
+
+    // Supporting function chaining
+    return this;
+  };
+
+  // Helper function to get offset.
+  function getAxisOffsetAValue(axis, options) {
+
+    if(options.offset[axis]) {
+      if(isNaN(options.offset[axis])) {
+        return options.offset[axis];
+      }
+      else {
+        return options.offset[axis] + 'px';
+      }
+    }
+
+    return '0px';
+
+  }
+
+  function containsClass(elem, yourClass) {
+    if (!elem || typeof yourClass !== "string") {
+      return false;
+    } else if (
+      elem.className &&
+      elem.className
+        .trim()
+        .split(/\s+/gi)
+        .indexOf(yourClass) > -1
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Setting up the prototype for the init object
+  Toastify.lib.init.prototype = Toastify.lib;
+
+  // Returning the Toastify function to be assigned to the window object/module
+  return Toastify;
+});
+
+
+/***/ }),
+
 /***/ "./src/assets/template.jpg":
 /*!*********************************!*\
   !*** ./src/assets/template.jpg ***!
@@ -3550,7 +4165,7 @@ module.exports = __webpack_require__.p + "template.jpg";
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -3645,8 +4260,9 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Movie_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Movie/service */ "./src/modules/Movie/service/index.js");
 /* harmony import */ var _modules_Movie_controller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Movie/controller */ "./src/modules/Movie/controller/index.js");
-/* harmony import */ var _styles_index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/index.css */ "./src/styles/index.css");
-/* harmony import */ var _assets_template_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/template.jpg */ "./src/assets/template.jpg");
+/* harmony import */ var toastify_js_src_toastify_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! toastify-js/src/toastify.css */ "./node_modules/toastify-js/src/toastify.css");
+/* harmony import */ var _styles_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/index.css */ "./src/styles/index.css");
+/* harmony import */ var _assets_template_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/template.jpg */ "./src/assets/template.jpg");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
@@ -3654,6 +4270,7 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
@@ -3670,7 +4287,7 @@ document.onreadystatechange = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_rege
             break;
           }
 
-          _template.src = _assets_template_jpg__WEBPACK_IMPORTED_MODULE_3__;
+          _template.src = _assets_template_jpg__WEBPACK_IMPORTED_MODULE_4__;
           _context.next = 4;
           return (0,_modules_Movie_service__WEBPACK_IMPORTED_MODULE_0__.getMovies)();
 
@@ -3695,4 +4312,4 @@ document.onreadystatechange = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_rege
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlebb3be97a152ad3a9e371.js.map
+//# sourceMappingURL=bundlebc7a093373d673cebcf1.js.map

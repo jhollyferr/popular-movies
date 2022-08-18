@@ -6,6 +6,7 @@ import {
   renderMovies,
 } from "./modules/Movie/controller";
 
+import "toastify-js/src/toastify.css";
 import "./styles/index.css";
 import image from "./assets/template.jpg";
 

@@ -5,6 +5,7 @@ import {
   removeFavoriteFromStorage,
   saveFavoriteToStorage,
 } from "../../Storage";
+import { toast } from "../../Toast";
 
 const template = document.querySelector(".card");
 const container = document.querySelector(".cards");
@@ -80,8 +81,21 @@ export const handleFavorite = async (event) => {
     const favorites = getFavoritedMovies();
     const movies = await getMovies();
 
-    if (!favorites.length)
+    cards.style.display = "none";
+    loading.style.display = "flex";
+
+    if (!(favorites.length > 0)) {
+      toast("There are no favorites. Please add some favorites.", "info");
       throw new Error("There are no favorites. Please add some favorites.");
+    }
+
+    cards.style.display = "none";
+    loading.style.display = "flex";
+
+    setTimeout(() => {
+      loading.style.display = "none";
+      cards.style.display = "";
+    }, 3000);
 
     return target.checked ? renderMovies(favorites) : renderMovies(movies);
   } catch (error) {
@@ -95,8 +109,10 @@ export const handleSearch = async (event) => {
 
     const searchInputValue = target.parentElement.children[0].value;
 
-    if (!searchInputValue)
+    if (!searchInputValue) {
+      toast("Please enter a movie title.", "info");
       throw new Error("Search input is empty, please enter a movie title");
+    }
 
     const movies = await searchMovies(searchInputValue);
 
@@ -111,10 +127,12 @@ export const handleSearchInput = async (event) => {
     const { target } = event;
     const searchInputValue = target.value;
 
-    if (!searchInputValue)
-      throw new Error("Search input is empty, please enter a movie title");
-
     if (event.key === "Enter") {
+      if (!searchInputValue) {
+        toast("Please enter a movie title.", "info");
+        throw new Error("Search input is empty, please enter a movie title");
+      }
+
       const movies = await searchMovies(searchInputValue);
 
       renderMovies(movies);
@@ -131,6 +149,14 @@ const saveOrFavoriteMovie = (movie) => {
     const index = favorites.findIndex(
       (item) => item.title === movie.title && item.isFavorited
     );
+
+    cards.style.display = "none";
+    loading.style.display = "flex";
+
+    setTimeout(() => {
+      loading.style.display = "none";
+      cards.style.display = "";
+    }, 2000);
 
     index === -1
       ? saveFavoriteToStorage(movie)

@@ -36,6 +36,14 @@ export const getMovies = async () => {
       data: { results },
     } = await API.get("/movie/popular", defaultOptions);
 
+    cards.style.display = "none";
+    loading.style.display = "flex";
+
+    setTimeout(() => {
+      loading.style.display = "none";
+      cards.style.display = "";
+    }, 3000);
+
     return [...results].map((movie) =>
       defineMovieData(movie, getFavoritedMovies())
     );
@@ -52,6 +60,14 @@ export const searchMovies = async (title) => {
       status,
       data: { results },
     } = await API.get("/search/movie", defaultOptions);
+
+    cards.style.display = "none";
+    loading.style.display = "flex";
+
+    setTimeout(() => {
+      loading.style.display = "none";
+      cards.style.display = "";
+    }, 3000);
 
     return [...results].map((movie) =>
       defineMovieData(movie, getFavoritedMovies())
