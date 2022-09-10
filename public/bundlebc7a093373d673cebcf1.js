@@ -2932,7 +2932,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var API = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-  baseURL: "https://api.themoviedb.org/4/",
+  baseURL: "https://api.themoviedb.org/3/",
   timeout: 1000,
   headers: {
     Authorization: "Bearer ".concat(_secret__WEBPACK_IMPORTED_MODULE_1__.API_TOKEN)
@@ -4312,4 +4312,4 @@ document.onreadystatechange = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_rege
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle5166c8e5ca743bdd357c.js.map
+//# sourceMappingURL=bundlebc7a093373d673cebcf1.js.map
