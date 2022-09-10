@@ -5,6 +5,7 @@ const Dotenv = require("dotenv-webpack");
 //   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
+  // watch: true,
   mode: "development",
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
@@ -25,6 +26,7 @@ module.exports = {
     port: 3080,
     compress: true,
     historyApiFallback: true,
+    // watch: true
   },
   module: {
     rules: [

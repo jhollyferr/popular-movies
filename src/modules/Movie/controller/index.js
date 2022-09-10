@@ -51,7 +51,7 @@ const renderMovie = (movie) => {
       favoriteIcon.textContent === "favorite"
         ? (favoriteIcon.textContent = "favorite_border")
         : (favoriteIcon.textContent = "favorite");
-      saveOrFavoriteMovie(movie);
+      saveOrRemoveFavoriteMovie(movie);
     });
 
     description.textContent = movie.description;
@@ -77,6 +77,8 @@ export const renderMovies = (movies) => {
 export const handleFavorite = async (event) => {
   try {
     const { target } = event;
+
+    _searchInput.value = "";
 
     const favorites = getFavoritedMovies();
     const movies = await getMovies();
@@ -109,10 +111,14 @@ export const handleSearch = async (event) => {
 
     const searchInputValue = target.parentElement.children[0].value;
 
+    if (_favorite.checked) _favorite.checked = false;
+
     if (!searchInputValue) {
       toast("Please enter a movie title.", "info");
       throw new Error("Search input is empty, please enter a movie title");
     }
+
+    _searchInput.value = "";
 
     const movies = await searchMovies(searchInputValue);
 
@@ -133,6 +139,10 @@ export const handleSearchInput = async (event) => {
         throw new Error("Search input is empty, please enter a movie title");
       }
 
+      _searchInput.value = "";
+
+      if (_favorite.checked) _favorite.checked = false;
+
       const movies = await searchMovies(searchInputValue);
 
       renderMovies(movies);
@@ -142,7 +152,7 @@ export const handleSearchInput = async (event) => {
   }
 };
 
-const saveOrFavoriteMovie = (movie) => {
+const saveOrRemoveFavoriteMovie = (movie) => {
   try {
     const favorites = getFavoritedMovies();
 

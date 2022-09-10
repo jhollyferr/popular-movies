@@ -178,7 +178,8 @@ body {
 
 .card-details .icons {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  justify-content: flex-start;
   font-size: 18px;
   text-align: center;
 }
@@ -194,6 +195,7 @@ body {
   font-weight: 400;
 }
 .card .description {
+  text-align: justify;
   width: 592px;
   /* height: 128px; */
   font-weight: 500;
@@ -353,4 +355,74 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--white-transparent);
+}
+@media (max-width: 1320px) {
+  .cards {
+    width: 90%;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+@media (max-width: 1281px) {
+  /* hi-res laptops and desktops */
+}
+@media (max-width: 1025px) {
+  .card{
+    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+  }
+
+  .card .description{
+    margin-top: 25px;
+  }
+
+  .card .card-details {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (max-width:700px){
+  .search{
+    width: 90%;
+    height: 45px;
+  }
+
+  .search input {
+    font-size: 16px;
+  }
+  
+  .search .icon {
+    padding: 10px 10px;
+    font-size: 30px;
+  }
+
+  .filter label{
+    font-size: 16px;
+  }
+  
+  .card .card-details {
+    text-align: center;
+    margin-top: 20px;
+    width: calc(100% / 1);
+    align-items: center;
+  }
+
+  .card-details .icons {
+    justify-content: flex-start;
+    padding-left: 4rem;
+  }
+}
+@media (max-width: 600px) {
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+@media (max-width: 480px) {
+  /* smartphones, Android phones, landscape iPhone */
+}
+@media (max-width: 320px) {
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 }
